@@ -1,0 +1,24 @@
+//筛选法创建堆
+template<class T>
+void SiftDown(T Data[], int i, int n){
+//用来保持以结点i为根的最大堆的性质，n是所有元素的个数
+  int l = 2*i+1,r = 2*i+2, min=i;//找到i结点的两个孩子的下标
+if(l < n && Data[min] < Data[r])//和左子节点进行比较
+min = l;
+  if(r < n && Data[min] < Data[r])//和右子结点进行比较
+min = r;
+  if(min != i){//判断是否需要进行调整
+T t = Data[min];
+Data[min] = Data[i];
+Data[i] = t;
+SiftDown(Data,min,n);//递归对子结点进行调整
+}
+}
+ 
+template<class T>
+void BuildHeap(T Data[], int n){
+  int p = n/2-1;//求出非叶子节点的最大下标
+  for(int i=p; i>=0; i--){
+    SiftDown(Data,i,n);//调用SiftDown函数，保持最大堆的性质
+}
+}

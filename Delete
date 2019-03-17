@@ -1,0 +1,27 @@
+template<class T>
+T& RemoveMin()	 {	// 从堆顶删除最小值
+	if (CurrentSize == 0) {
+		cout<< "Can't Delete";// 调用RemoveMin之前，需要判断堆非空
+		exit(1) ;
+	}
+	else  {
+		swap(0,- -CurrentSize);	            // 交换堆顶和最后一个元素
+		if (CurrentSize>1)        
+      SiftDown(0);       // 从堆顶开始筛选
+		return heapArray[CurrentSize];
+	}
+}
+
+
+template<class T>
+bool Remove(int pos, T& node)  {   // 删除给定下标的元素
+	if ((pos < 0) || (pos >=CurrentSize))     
+    return false;
+	node = heapArray[pos];
+	heapArray[pos] = heapArray[- -CurrentSize];	// 用最后的元素值替代删除位置的元素
+  if (heapArray[parent(pos)] > heapArray[pos]) 	
+		SiftUp(pos);			// 当前元素小于父结点，需要上升调整
+	else 
+    SiftDown(pos);			// 当前元素大于父结点，向下筛
+	return true;
+}

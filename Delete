@@ -7,7 +7,7 @@ T& RemoveMin()	 {	// 从堆顶删除最小值
 	else  {
 		swap(0,- -CurrentSize);	            // 交换堆顶和最后一个元素
 		if (CurrentSize>1)        
-      		SiftDown(0);       // 从堆顶开始筛选
+      			SiftDown(0);       // 从堆顶开始筛选
 		return heapArray[CurrentSize];
 	}
 }

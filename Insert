@@ -1,3 +1,4 @@
+//向堆中插入结点
 template<class T>
 void SiftUp(int position)  {   		// 从position向上开始调整
 	int temppos = position;

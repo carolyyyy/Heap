@@ -1,3 +1,4 @@
+//从堆中删除结点
 template<class T>
 T& RemoveMin()	 {	// 从堆顶删除最小值
 	if (CurrentSize == 0) {

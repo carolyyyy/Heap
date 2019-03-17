@@ -5,7 +5,7 @@ T& RemoveMin()	 {	// 从堆顶删除最小值
 		exit(1) ;
 	}
 	else  {
-		swap(0,- -CurrentSize);	            // 交换堆顶和最后一个元素
+		swap(0 , --CurrentSize);	            // 交换堆顶和最后一个元素
 		if (CurrentSize>1)        
       			SiftDown(0);       // 从堆顶开始筛选
 		return heapArray[CurrentSize];
@@ -18,7 +18,7 @@ bool Remove(int pos, T& node)  {   // 删除给定下标的元素
 	if ((pos < 0) || (pos >=CurrentSize))     
     		return false;
 	node = heapArray[pos];
-	heapArray[pos] = heapArray[- -CurrentSize];	// 用最后的元素值替代删除位置的元素
+	heapArray[pos] = heapArray[--CurrentSize];	// 用最后的元素值替代删除位置的元素
   	if (heapArray[parent(pos)] > heapArray[pos]) 	
 		SiftUp(pos);			// 当前元素小于父结点，需要上升调整
 	else 

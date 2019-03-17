@@ -1,0 +1,21 @@
+template<class T>
+void SiftUp(int position)  {   		// 从position向上开始调整
+	int temppos = position;
+	T temp = heapArray[temppos];
+	while ((temppos > 0) && (heapArray[parent(temppos)] > temp)) {
+		heapArray[temppos] = heapArray[parent(temppos)];
+		temppos = parent(temppos);
+	}
+	heapArray[temppos] = temp;
+}
+
+
+template <class T>
+bool Insert(const T& newNode)  {// 向堆中插入新元素newNode
+	if (CurrentSize == MaxSize)	
+       return FALSE;                                  // 堆空间已经满
+	heapArray[CurrentSize] = new Node;
+	SiftUp(CurrentSize);		// 向上调整
+	CurrentSize++;
+	return TRUE;
+}

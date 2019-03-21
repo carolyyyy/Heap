@@ -22,5 +22,5 @@ void BuildHeap(T Data[], int n){
   int p = n/2-1;//求出非叶子节点的最大下标
   for(int i=p; i>=0; i--){
     SiftDown(Data,i,n);//调用SiftDown函数，保持最小堆的性质
-}
+  }
 }
